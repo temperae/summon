@@ -168,9 +168,9 @@ var commonPool = {
 // Defining summons!
 var waterSummon = {
     name: "Water Summon",
-    image: "http://i.imgur.com/9L9eYk4.png",
-    buttons: [{"http://i.imgur.com/l5jhPHy.png": "singleSummon"}, 
-              {"http://i.imgur.com/xtakRLt.png": "multiSummon"}],
+    image: "https://i.imgur.com/9L9eYk4.png",
+    buttons: [{"https://i.imgur.com/l5jhPHy.png": "singleSummon"}, 
+              {"https://i.imgur.com/xtakRLt.png": "multiSummon"}],
     singleFeaturedGuarantee: null,
     multiRolls: 10,
     multiFeaturedGuarantee: null,
@@ -193,14 +193,14 @@ var waterSummon = {
         "4-star": ["(Rain Maiden) Annie"],
         "3-star": []
     },
-    nameBanner: "http://i.imgur.com/H98mhi7.png"
+    nameBanner: "https://i.imgur.com/H98mhi7.png"
 }
 
 var athleticsFestivalSummon = {
     name: "Athletics Festival Fantasy Summon",
-    image: "http://i.imgur.com/TBj9W7Y.png",
-    buttons: [{"http://i.imgur.com/JvvIwKv.png": "singleSummon"}, 
-              {"http://i.imgur.com/nWC7xV1.png": "multiSummon"}],
+    image: "https://i.imgur.com/TBj9W7Y.png",
+    buttons: [{"https://i.imgur.com/JvvIwKv.png": "singleSummon"}, 
+              {"https://i.imgur.com/nWC7xV1.png": "multiSummon"}],
     singleFeaturedGuarantee: null,
     multiRolls: 10,
     multiFeaturedGuarantee: {"4+": 1},
@@ -222,14 +222,14 @@ var athleticsFestivalSummon = {
             "(Daredevil) Presea"],
         "3-star": []
     },
-    nameBanner: "http://i.imgur.com/ubapFyX.png"
+    nameBanner: "https://i.imgur.com/ubapFyX.png"
 }
 
 var holyNightSummon = {
     name: "Knotty Holy Night Summon",
-    image: "http://i.imgur.com/QbLLtjj.png",
-    buttons: [{"http://i.imgur.com/BWwYjLj.png": "singleSummon"},
-              {"http://i.imgur.com/q7v5jlM.png": "multiSummon"}],
+    image: "https://i.imgur.com/QbLLtjj.png",
+    buttons: [{"https://i.imgur.com/BWwYjLj.png": "singleSummon"},
+              {"https://i.imgur.com/q7v5jlM.png": "multiSummon"}],
     singleFeaturedGuarantee: null,
     multiRolls: 10,
     multiFeaturedGuarantee: {"4+": 1},
@@ -253,7 +253,128 @@ var holyNightSummon = {
             "(???) Garr"],
         "3-star": []
     },
-    nameBanner: "http://i.imgur.com/N2usPGx.png"
+    nameBanner: "https://i.imgur.com/N2usPGx.png"
+}
+
+var ma1Summon = {
+    name: "Mystic Arte Summon",
+    image: "https://i.imgur.com/K9JsL8g.png",
+    buttons: [{"https://i.imgur.com/8FNnv8J.png": "singleSummon"},
+              {"https://i.imgur.com/LXH9jGI.png": "multiSummon"}],
+    singleFeaturedGuarantee: null,
+    multiRolls: 11,
+    multiFeaturedGuarantee: null,
+    multiGuarantee: {"4+": 2},
+    usesCommonPool: true,
+    fixedElement: null,
+    weights: [[64, "3-star"], [94, "4-star"], [100, "5-star"]],
+    singleSummon: defaultSingleSummon,
+    multiSummon: defaultMultiSummon,
+    featuredRoster: {
+        "5-star": [
+            "(UA) Estelle & Rita",
+            "(New Year's Party) Estelle",
+            "(Festival Bloom) Estelle",
+            "(Microphone Hog) Zelos",
+            "(Tethe'allen Chosen) Zelos",
+            "(Fair Nobleman) Zelos"],
+        "4-star": [],
+        "3-star": []
+    },
+    nameBanner: "https://i.imgur.com/QvpWqYc.png"
+}
+
+
+var maidSummon = {
+    name: "Maid & Butler Summon Summon",
+    image: "http://i.imgur.com/4YLE0Iy.png",
+    buttons: [{"http://i.imgur.com/sXHyerR.png": "singleSummon"},
+              {"http://i.imgur.com/jni0cwI.png": "multiSummon"}],
+    singleFeaturedGuarantee: null,
+    multiRolls: 10,
+    multiFeaturedGuarantee: {"4+": 1},
+    multiGuarantee: {"4+": 2},
+    usesCommonPool: true,
+    fixedElement: null,
+    weights: [[64, "3-star"], [94, "4-star"], [100, "5-star"]],
+    singleSummon: defaultSingleSummon,
+    multiSummon: defaultMultiSummon,
+    featuredRoster: {
+        "5-star": [
+            "(Gorgeous Barmaid) Milla",
+            "(Blushing Maiden) Tear",
+            "(Combative Server) Alvin",
+            "(Hot-blooded Waiter) Lloyd"],
+        "4-star": [
+            "(Archaeology Fanatic) Raine",
+            "(Skilled Bodyguard) Reid",
+            "(Young Viscount) Luke"],
+        "3-star": []
+    },
+    nameBanner: "http://i.imgur.com/qS78N00.png"
+}
+
+var godGeneralSummon = {
+    name: "God-Generals Strike Summon",
+    image: "http://i.imgur.com/WgTIgMx.png",
+    buttons: [{"http://i.imgur.com/gpvq9NL.png": "singleSummon"},
+              {"http://i.imgur.com/zjP00O1.png": "multiSummon"}],
+    singleFeaturedGuarantee: null,
+    multiRolls: 10,
+    multiFeaturedGuarantee: {"4+": 1},
+    multiGuarantee: {"4+": 2},
+    usesCommonPool: true,
+    fixedElement: null,
+    weights: [[64, "3-star"], [94, "4-star"], [100, "5-star"]],
+    singleSummon: defaultSingleSummon,
+    multiSummon: defaultMultiSummon,
+    featuredRoster: {
+        "5-star": [
+            "(God-General) Asch",
+            "(God-General) Largo",
+            "(God-General) Legretta",
+            "(God-General) Sync",
+            "(God-General) Arietta",
+            "(God-General) Dist",
+            "(The Bloody Maestro) Asch",
+            "(Necromancer) Jade",
+            "(Devastating Cutie) Anise",
+            "(Sword of Swords) Luke",
+            "(Fonic Hymn Master) Tear"],
+        "4-star": [
+            "(Secretive Swordsman) Asch",
+            "(Patriotic Princess) Natalia",
+            "(Insightful One) Jade",
+            "(Grown-up Child) Anise",
+            "(Kimlascan Princess) Natalia",
+            "(Sigmund Tactician) Guy",
+            "(Singer of the Verse) Tear",
+            "(Young Viscount) Luke"],
+        "3-star": []
+    },
+    nameBanner: "http://i.imgur.com/RO6u7m8.png"
+}
+
+var barbatosSummon = {
+    name: "Barbatos Summon",
+    image: "https://vignette2.wikia.nocookie.net/tales-of-link/images/d/d8/%28Hero_Killer%29_Barbatos.png/revision/latest?cb=20161016090637",
+    buttons: [{"https://i.imgur.com/xtakRLt.png": "multiSummon"}],
+    singleFeaturedGuarantee: null,
+    multiRolls: 10,
+    multiFeaturedGuarantee: null,
+    // "4-star", "5-star", "4+":
+    multiGuarantee: null,
+    usesCommonPool: false,
+    fixedElement: null,
+    weights: [[0, "3-star"], [0, "4-star"], [100, "5-star"]],
+    singleSummon: defaultSingleSummon,
+    multiSummon: defaultMultiSummon,
+    // omit any keys which do not exist:
+    featuredRoster: {
+        "5-star": [
+            "(Hero Killer) Barbatos"]
+    },
+    nameBanner: "https://i.imgur.com/H98mhi7.png"
 }
 
 // Returns a random value between minimum and maximum (both inclusive).
@@ -511,24 +632,28 @@ function doSummon(funcName, summonIdx) {
         let unitRarity = retval[i].rarity;
 
         getUnitImage(unitName).then(function(response) {
-            $('#resultList').append('<a href="' + response[1] + '" target="_blank"><div id="result-' + i + '" class="summon-row rarity-' + unitRarity +
-                           '"><img class="unit-icon" src="' + response[0] + '"><p>' + unitName + '</p><img class="element-icon" src="' + elementIcons[unitElement] + '"/></div></a>');
+            $('#resultList').append('<div id="result-' + i + '" class="summon-row rarity-' + unitRarity +
+                           '" onclick="loadFrame(\'' + response[1] + '\')"><img class="unit-icon" src="' + response[0] + '"><p>' + unitName + '</p><img class="element-icon" src="' + elementIcons[unitElement] + '"/></div></a>');
         })
     }
     
 }
 
+function loadFrame(url) {
+    $('#wikiPage').attr('src', url);
+}
+
 var elementIcons = {
-    "Water": "http://i.imgur.com/piEF2BU.png",
-    "Fire": "http://i.imgur.com/gKkBY6n.png",
-    "Wind": "http://i.imgur.com/5WcQNUY.png",
-    "Earth": "http://i.imgur.com/XyMh3zq.png",
-    "Light": "http://i.imgur.com/aMaJtbw.png",
-    "Dark": "http://i.imgur.com/Xo3aJkY.png"
+    "Water": "https://i.imgur.com/piEF2BU.png",
+    "Fire": "https://i.imgur.com/gKkBY6n.png",
+    "Wind": "https://i.imgur.com/5WcQNUY.png",
+    "Earth": "https://i.imgur.com/XyMh3zq.png",
+    "Light": "https://i.imgur.com/aMaJtbw.png",
+    "Dark": "https://i.imgur.com/Xo3aJkY.png"
 }
 var imgResolutions = {
-    "(???) Chelsea": "http://i.imgur.com/hc4d3OV.png",
-    "(???) Garr": "http://i.imgur.com/RJyemmV.png"
+    "(???) Chelsea": "https://i.imgur.com/hc4d3OV.png",
+    "(???) Garr": "https://i.imgur.com/RJyemmV.png"
 };
 
 var nameResolutions = {
@@ -557,7 +682,7 @@ function getUnitImage(name) {
             success: function(res) {
                 var pages = res.query.pages;
                 for (var i in pages) {
-                    resolve([pages[i].imageinfo[0].url, 'http://tales-of-link.wikia.com/wiki/' + encodeURIComponent(targetName)]);
+                    resolve([pages[i].imageinfo[0].url, 'https://tales-of-link.wikia.com/wiki/' + encodeURIComponent(targetName) + '?useskin=mercury']);
                 }
             }
         });
@@ -585,7 +710,7 @@ function displaySummonInfo(summonIdx) {
     $('#summonBtns').html(buttonHTML);    
 }
 
-var availableSummons = [waterSummon, athleticsFestivalSummon, holyNightSummon];
+var availableSummons = [holyNightSummon, waterSummon, athleticsFestivalSummon, ma1Summon, godGeneralSummon, maidSummon, barbatosSummon];
 
 $(document).ready(function() {
     // Populate list of summons:
