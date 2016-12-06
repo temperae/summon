@@ -248,9 +248,8 @@ var holyNightSummon = {
             "(Does Delivery) Rose"],
         "4-star": [
             "(Insightful One) Jade",
-            // These two need to be updated:
-            "(???) Chelsea",
-            "(???) Garr"],
+            "(Naïve Innocence) Chelsea",
+            "(King of Phandaria) Garr"],
         "3-star": []
     },
     nameBanner: "https://i.imgur.com/N2usPGx.png"
@@ -689,8 +688,8 @@ var elementIcons = {
     "Dark": "https://i.imgur.com/Xo3aJkY.png"
 }
 var imgResolutions = {
-    "(???) Chelsea": "https://i.imgur.com/hc4d3OV.png",
-    "(???) Garr": "https://i.imgur.com/RJyemmV.png"
+    // "(???) Chelsea": "https://i.imgur.com/hc4d3OV.png",
+    // "(???) Garr": "https://i.imgur.com/RJyemmV.png"
 };
 
 var nameResolutions = {
@@ -743,8 +742,8 @@ function displaySummonInfo(summonIdx) {
 
     $('#summonBtns').html(buttonHTML);
 
-    for (var i in summon.buttons) {
-        for (var key in summon.buttons[i]) {
+    for (let i in summon.buttons) {
+        for (let key in summon.buttons[i]) {
             $('#summon-button-' + i).on('click', function() {
                 doSummon(summon.buttons[i][key], summonIdx);
             })
