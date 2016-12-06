@@ -641,6 +641,10 @@ function doSummon(funcName, summonIdx) {
 
 function loadFrame(url) {
     $('#wikiPage').attr('src', url);
+    //$('#myModal').on('show', function () {
+    //    $('iframe').attr("src", url);
+    //});
+    //$('#myModal').modal({show:true});
 }
 
 var elementIcons = {
@@ -702,7 +706,7 @@ function displaySummonInfo(summonIdx) {
     var buttonHTML = '';
     for (var i in summon.buttons) {
         for (var key in summon.buttons[i]) {
-            buttonHTML += ('<div class="summon-button" onclick="doSummon(\'' + summon.buttons[i][key] + '\', ' + summonIdx + ')">' + 
+            buttonHTML += ('<div class="summon-button col-xs-6" onclick="doSummon(\'' + summon.buttons[i][key] + '\', ' + summonIdx + ')">' + 
                            '<img src="' + key + '"></div>');
         }
     }
