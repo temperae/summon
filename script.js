@@ -377,6 +377,33 @@ var barbatosSummon = {
     nameBanner: "https://i.imgur.com/H98mhi7.png"
 }
 
+var flowerSummon = {
+    name: "Flower Summon",
+    image: "http://i.imgur.com/wzgV51y.png",
+    buttons: [{"http://i.imgur.com/aieCKBu.png": "singleSummon"},
+              {"http://i.imgur.com/98UHj79.png": "multiSummon"}],
+    singleFeaturedGuarantee: null,
+    multiRolls: 10,
+    multiFeaturedGuarantee: null,
+    multiGuarantee: {"4+": 2},
+    usesCommonPool: true,
+    fixedElement: false,
+    weights: [[64, "3-star"], [94, "4-star"], [100, "5-star"]],
+    singleSummon: defaultSingleSummon,
+    multiSummon: defaultMultiSummon,
+    featuredRoster: {
+        "5-star": [
+            "(Gentle Soul) Kana",
+            "(Talk of the Town) Sophie",
+            "(Her Father's Footsteps) Rubia",
+            "(Memory Seeker) P. Kanonno",
+            "(Blessed Maiden) Shirley"],
+        "4-star": [],
+        "3-star": []
+    },
+    nameBanner: "http://i.imgur.com/Irjw6s6.png"
+}
+
 // Returns a random value between minimum and maximum (both inclusive).
 function getRandomNumber(minimum, maximum) {
     return Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
@@ -631,7 +658,16 @@ function doSummon(funcName, summonIdx) {
         let unitElement = retval[i].element;
         let unitRarity = retval[i].rarity;
 
+        if (nameResolutions[unitName]) {
+            if (nameResolutions[unitName][unitRarity]) {
+                unitName = nameResolutions[unitName][unitRarity];
+            }
+        }
+
         getUnitImage(unitName).then(function(response) {
+            // Replace all apostrophes:
+            response[1] = response[1].replace("'", "@");
+
             $('#resultList').append('<div id="result-' + i + '" class="summon-row rarity-' + unitRarity +
                            '" onclick="loadFrame(\'' + response[1] + '\')"><img class="unit-icon" src="' + response[0] + '"><p>' + unitName + '</p><img class="element-icon" src="' + elementIcons[unitElement] + '"/></div></a>');
         })
@@ -640,11 +676,8 @@ function doSummon(funcName, summonIdx) {
 }
 
 function loadFrame(url) {
+    url = url.replace("@", "'");
     $('#wikiPage').attr('src', url);
-    //$('#myModal').on('show', function () {
-    //    $('iframe').attr("src", url);
-    //});
-    //$('#myModal').modal({show:true});
 }
 
 var elementIcons = {
@@ -661,7 +694,8 @@ var imgResolutions = {
 };
 
 var nameResolutions = {
-    "(Master Swordsman) Lloyd": "(Master Swordsman) Lloyd (5-star)"
+    "(Master Swordsman) Lloyd": {"5-star": "(Master Swordsman) Lloyd (5-star)",
+                                 "4-star": "(Master Swordsman) Lloyd (4-star)"}
 };
 
 function getUnitImage(name) {
@@ -671,12 +705,8 @@ function getUnitImage(name) {
         }
 
         var targetName = name;
-        
-        if (nameResolutions[name]) {
-            targetName = nameResolutions[name];
-        }
 
-        var url = 'https://tales-of-link.wikia.com/api.php?action=query&titles=File:' + encodeURIComponent(targetName) + ' (Icon).png&prop=imageinfo&iiprop=url&format=json';
+        var url = "https://tales-of-link.wikia.com/api.php?action=query&titles=File:" + encodeURIComponent(targetName) + " (Icon).png&prop=imageinfo&iiprop=url&format=json";
 
         $.ajax({
             url: url,
@@ -686,7 +716,7 @@ function getUnitImage(name) {
             success: function(res) {
                 var pages = res.query.pages;
                 for (var i in pages) {
-                    resolve([pages[i].imageinfo[0].url, 'https://tales-of-link.wikia.com/wiki/' + encodeURIComponent(targetName) + '?useskin=mercury']);
+                    resolve([pages[i].imageinfo[0].url, "https://tales-of-link.wikia.com/wiki/" + encodeURIComponent(targetName) + "?useskin=mercury"]);
                 }
             }
         });
@@ -706,15 +736,23 @@ function displaySummonInfo(summonIdx) {
     var buttonHTML = '';
     for (var i in summon.buttons) {
         for (var key in summon.buttons[i]) {
-            buttonHTML += ('<div class="summon-button col-xs-6" onclick="doSummon(\'' + summon.buttons[i][key] + '\', ' + summonIdx + ')">' + 
-                           '<img src="' + key + '"></div>');
+            buttonHTML += ('<div class="summon-button">' + 
+                           '<img id="summon-button-' + i + '" src="' + key + '"></div>');
         }
     }
 
-    $('#summonBtns').html(buttonHTML);    
+    $('#summonBtns').html(buttonHTML);
+
+    for (var i in summon.buttons) {
+        for (var key in summon.buttons[i]) {
+            $('#summon-button-' + i).on('click', function() {
+                doSummon(summon.buttons[i][key], summonIdx);
+            })
+        }
+    }
 }
 
-var availableSummons = [holyNightSummon, waterSummon, athleticsFestivalSummon, ma1Summon, godGeneralSummon, maidSummon, barbatosSummon];
+var availableSummons = [flowerSummon, holyNightSummon, waterSummon, athleticsFestivalSummon, ma1Summon, godGeneralSummon, maidSummon, barbatosSummon];
 
 $(document).ready(function() {
     // Populate list of summons:
